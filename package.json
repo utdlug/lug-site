@@ -8,6 +8,5 @@
   "dependencies": {
     "express": "*",
     "jade": "*"
-    //"mongojs": "*"
   }
 }

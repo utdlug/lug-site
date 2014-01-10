@@ -6,6 +6,11 @@ The official website of the Linux Users Group @ UTD.  It will utilize the MEAN (
 When finished, this will be deployed and managed onto lug.utdallas.edu.
 
 
+Installation
+------------
+Assuming the current code isn't broken, you can run it by `npm install` and then `node app.js`.
+
+
 Todo
 ------------
 1. UI tweaks.  Buttons will be moved to top.
