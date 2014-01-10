@@ -1,0 +1,60 @@
+section #title {
+  border: 0;
+  outline: none;
+  margin: 0 !important;
+  padding-bottom: 20px !important;
+}
+.asdf {
+  text-align: center;
+  font-size: 16px;
+}
+.logo {
+  margin-top: -35px;
+  padding-bottom: 10px;
+}
+#irc a {
+  margin-right: 15px;
+  color: white;
+  border: 1px solid #91600c;
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #bd8320), color-stop(100%, #9e6a10));
+  background: -webkit-linear-gradient(#bd8320, #9e6a10);
+  background: -moz-linear-gradient(#bd8320, #9e6a10);
+  background: -o-linear-gradient(#bd8320, #9e6a10);
+  background: -ms-linear-gradient(#bd8320, #9e6a10);
+  background: linear-gradient(#bd8320, #9e6a10);
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
+  -o-box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.3), 0px 3px 7px rgba(0, 0, 0, 0.7);
+  background-color: #bd8320;
+  padding: 10px 12px;
+  margin-top: 6px;
+  line-height: 14px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+}
+#irc a:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #966b19), color-stop(100%, #7f580e));
+  background: -webkit-linear-gradient(#966819, #80560e);
+  background: -moz-linear-gradient(#966819, #80560e);
+  background: -o-linear-gradient(#966819, #80560e);
+  background: -ms-linear-gradient(#966819, #80560e);
+  background: linear-gradient(#966819, #80560e);
+  background-color: #9e6a10;
+  border: 1px solid #80560e;
+  -moz-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
+  -o-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.2), 0px 1px 0px rgba(0, 0, 0, 0);
+}
+
+/*#header nav li a {
+  font-weight: 700 !important;
+}*/
