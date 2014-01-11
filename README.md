@@ -13,8 +13,9 @@ Assuming the current code isn't broken, you can run it by `npm install` and then
 
 Todo
 ------------
-1. UI tweaks.  Buttons will be moved to top.
-2. MongoDB implementation
-3. Express routing
-4. API / JSON awesomeness
-5. Angular frontend
+1. MongoDB implementation 
+2. Express routing
+3. API / JSON awesomeness
+4. Calendar support
+5. UI tweaks.  Buttons will be moved to top.
+6. Angular frontend

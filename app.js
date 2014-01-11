@@ -13,6 +13,26 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
+/* Future Mongo / Mongoose support
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/lug-site');
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function callback () {
+  // continue
+}); 
+
+// Schema 
+var lugEvent = mongoose.Schema({
+    date: { type: Date },
+    title:  String,
+    body:   String,
+    hidden: Boolean,
+    updated: { type: Date, default: Date.now }
+});
+*/
+
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
