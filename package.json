@@ -1,13 +1,18 @@
 {
   "name": "lug-site",
+  "description": "The official website for the Linux Users Group @ UTD.",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/utdlug/lug-site.git"
+  },
   "dependencies": {
-    "express": "*",
-    "jade": "*",
+    "express": "~3.4.7",
+    "jade": "~1.0.2",
     "mongoose": "~3.8.3",
     "connect-mongo": "~0.4.0",
     "grunt": "~0.4.2"
