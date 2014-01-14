@@ -1,0 +1,32 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/styles.css')
+    link(rel='stylesheet', href='/stylesheets/pygment_trac.css')
+    link(rel='stylesheet', href='/stylesheets/lug.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1, user-scalable=no')
+    meta(charset='utf-8')
+
+  body
+    #header
+        nav
+            li.downloads
+                a(href='join') Become a member
+                
+    .wrapper
+        section
+            #title
+                img.logo(src='/images/logo.png')
+                h1 Welcome
+                p We are a student organization devoted to the teaching and advocacy of Linux, open source, and free software of all kinds. We welcome anyone and everyone from the Linux, Unix, BSD, and OS X realms, so come join us. All meetings are open to the public. Check out the Discussions page for information about IRC clients and join our conversation online.
+                br
+                #irc.asdf
+                    nav
+                        a(href='chat') Chat with us
+                        | we are on IRC at 
+                        b irc.oftc.net #utdlug.
+                br
+                hr
+            //- placeholder stuff until dynamic content is implemented:
+            block content

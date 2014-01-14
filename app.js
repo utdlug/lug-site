@@ -41,6 +41,12 @@ if ('development' == app.get('env')) {
 app.get('/', function(req, res) {
     res.render('index', {title: "Linux Users Group @ UTD"});
 });
+app.get('/join', function(req, res) {
+    res.redirect("https://orgsync.com/join/15316/linux-users-group");
+});
+app.get('/chat', function(req, res) {
+    res.redirect("http://lug.utdallas.edu:3000");
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
