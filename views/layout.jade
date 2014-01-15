@@ -12,16 +12,22 @@ html
     #header
         nav
             li.downloads
-                a(href='join') Become a member
+                a(href='join').nav_join Become a member
+            li.fork
+                a(href='https://github.com/utdlug/').nav_top Github
+             li.fork
+                a(href='calendar').nav_top About Us
+
                 
     .wrapper
         section
             #title
                 img.logo(src='/images/logo.png')
                 h1 Welcome
-                p We are a student organization devoted to the teaching and advocacy of Linux, open source, and free software of all kinds. We welcome anyone and everyone from the Linux, Unix, BSD, and OS X realms, so come join us. All meetings are open to the public. Check out the Discussions page for information about IRC clients and join our conversation online.
+                p We are a student organization devoted to the teaching and advocacy of Linux, open source, and free software of all kinds. We welcome anyone and everyone from the Linux, Unix, BSD, and OS X realms, so come join us. All meetings are open to the public. Check out the Discussions page for information about IRC clients and join our conversation online. 
+
                 br
-                #irc.asdf
+                #irc.irc_contact
                     nav
                         a(href='chat') Chat with us
                         | we are on IRC at 

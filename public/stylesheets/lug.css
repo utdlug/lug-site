@@ -4,7 +4,29 @@ section #title {
   margin: 0 !important;
   padding-bottom: 20px !important;
 }
-.asdf {
+.news-l {
+float: left;
+text-align: justify;
+padding-right: 20px;
+}
+.news-r {
+float: right;
+text-align: justify;
+padding-left: 20px;
+}
+.nav_join {
+text-shadow: 1px 1px #333;
+}
+.nav_top {
+margin-right: 10px;
+/* text-shadow: 1px 1px #333;*/
+border: 1px solid #91600c !important;
+background: linear-gradient(#e8970c, #a76d0a) !important;
+}
+a.nav_top:hover {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ab710f), color-stop(100%, #99650c)) !important;
+}
+.irc_contact {
   text-align: center;
   font-size: 16px;
 }
