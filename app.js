@@ -1,13 +1,20 @@
 /* extremely bare for now. will add routing, mongo, and api stuff soon. */
 
 var express = require('express')
-  , http = require('http') , path = require('path');
-
+  , https = require('https') , path = require('path');
+var fs = require('fs');
 var app = express();
+var options = {
+    key: fs.readFileSync('../certs/lug.utdallas.edu.key'),
+    cert: fs.readFileSync('../certs/lug.utdallas.edu.cer'),
+    requestCert: true
+//   rejectUnauthorized: false
+};
+
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', __dirname + '/views');
-app.set('port', process.env.PORT || 3000);  // dev
+app.set('port', process.env.PORT || 3001);  // dev
 app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
@@ -51,6 +58,6 @@ app.get('/irc', function(req, res) {
         res.redirect("http://lug.utdallas.edu:3000");
 });
 
-http.createServer(app).listen(app.get('port'), function(){
+https.createServer(options,app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
