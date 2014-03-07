@@ -6,8 +6,7 @@ var fs = require('fs');
 var app = express();
 var options = {
     key: fs.readFileSync('../certs/lug.utdallas.edu.key'),
-    cert: fs.readFileSync('../certs/lug.utdallas.edu.cer'),
-    requestCert: true
+    cert: fs.readFileSync('../certs/lug.utdallas.edu.cer')
 //   rejectUnauthorized: false
 };
 
@@ -52,12 +51,12 @@ app.get('/join', function(req, res) {
     res.redirect("https://orgsync.com/join/15316/linux-users-group");
 });
 app.get('/chat', function(req, res) {
-    res.redirect("http://lug.utdallas.edu:3000");
+    res.redirect("https://lug.utdallas.edu:3000");
 });
 app.get('/irc', function(req, res) {
-        res.redirect("http://lug.utdallas.edu:3000");
+        res.redirect("https://lug.utdallas.edu:3000");
 });
 
 https.createServer(options,app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+  console.log('Express server (SSL) listening on port ' + app.get('port'));
 });
