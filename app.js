@@ -1,12 +1,12 @@
 /* extremely bare for now. will add routing, mongo, and api stuff soon. */
 
 var express = require('express')
-  , https = require('https') , path = require('path');
+  , http = require('http') , https = require('https') , path = require('path');
 var fs = require('fs');
 var app = express();
 var options = {
-    key: fs.readFileSync('../certs/lug.utdallas.edu.key'),
-    cert: fs.readFileSync('../certs/lug.utdallas.edu.cer')
+    key: fs.readFileSync('/var/www/certs/lug.utdallas.edu.key'),
+    cert: fs.readFileSync('/var/www/certs/lug.utdallas.edu.cer')
 //   rejectUnauthorized: false
 };
 
@@ -18,6 +18,7 @@ app.set('view engine', 'jade');
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
+
 
 /* Future Mongo / Mongoose support
 var mongoose = require('mongoose');
@@ -39,24 +40,50 @@ var lugEvent = mongoose.Schema({
 });
 */
 
+
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
 // Routing
 app.get('/', function(req, res) {
-    res.render('index', {title: "Linux Users Group @ UTD"});
+    if(!req.secure) {
+        res.redirect(301, "https://lug.utdallas.edu");
+    }
+    else {
+        res.render('index', {title: "Linux Users Group @ UTD"});
+    }
 });
 app.get('/join', function(req, res) {
-    res.redirect("https://orgsync.com/join/15316/linux-users-group");
+    if(!req.secure) {
+        res.redirect(301, "https://" + req.headers.host + req.url);
+    }
+    else {
+        res.redirect("https://orgsync.com/join/15316/linux-users-group");
+    }
 });
 app.get('/chat', function(req, res) {
-    res.redirect("https://lug.utdallas.edu:3000");
+    if(!req.secure) {
+        res.redirect(301, "https://" + req.headers.host + req.url);
+    }
+    else {
+        res.redirect("https://lug.utdallas.edu:3000");
+    }
 });
 app.get('/irc', function(req, res) {
+    if(!req.secure) {
+        res.redirect(301, "https://" + req.headers.host + req.url);
+    }
+    else {
         res.redirect("https://lug.utdallas.edu:3000");
+    }
+});
+
+http.createServer(app).listen(80, function(){
+  console.log('Express server (http redirect) listening on port 80');
 });
 
 https.createServer(options,app).listen(app.get('port'), function(){
   console.log('Express server (SSL) listening on port ' + app.get('port'));
 });
+
