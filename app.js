@@ -79,8 +79,8 @@ app.get('/irc', function(req, res) {
     }
 });
 
-http.createServer(app).listen(80, function(){
-  console.log('Express server (http redirect) listening on port 80');
+http.createServer(app).listen(3002, function(){
+  console.log('Express server (http redirect) listening on port 3002');
 });
 
 https.createServer(options,app).listen(app.get('port'), function(){
