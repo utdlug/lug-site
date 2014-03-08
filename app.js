@@ -5,10 +5,10 @@ var express = require('express')
 var fs = require('fs');
 var app = express();
 var appRedirect = express();
-
+var certPath = "/var/www/certs/";
 var options = {
-    key: fs.readFileSync('/var/www/certs/lug.utdallas.edu.key'),
-    cert: fs.readFileSync('/var/www/certs/lug.utdallas.edu.cer')
+    key: fs.readFileSync(certPath + 'lug.utdallas.edu.key'),
+    cert: fs.readFileSync(certPath + 'lug.utdallas.edu.cer')
 //   rejectUnauthorized: false
 };
 
@@ -75,4 +75,3 @@ http.createServer(appRedirect).listen(appRedirect.get('port'), function(){
 https.createServer(options,app).listen(app.get('port'), function(){
   console.log('Express server (SSL) listening on port ' + app.get('port'));
 });
-
