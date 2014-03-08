@@ -4,6 +4,8 @@ var express = require('express')
   , http = require('http') , https = require('https') , path = require('path');
 var fs = require('fs');
 var app = express();
+var appRedirect = express();
+
 var options = {
     key: fs.readFileSync('/var/www/certs/lug.utdallas.edu.key'),
     cert: fs.readFileSync('/var/www/certs/lug.utdallas.edu.cer')
@@ -19,6 +21,10 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 
+appRedirect.set('port', 3002);
+appRedirect.get("*", function (req, res) {
+   res.redirect("https://lug.utdallas.edu" + req.path);
+});
 
 /* Future Mongo / Mongoose support
 var mongoose = require('mongoose');
@@ -79,8 +85,8 @@ app.get('/irc', function(req, res) {
     }
 });
 
-http.createServer(app).listen(3002, function(){
-  console.log('Express server (http redirect) listening on port 3002');
+http.createServer(appRedirect).listen(appRedirect.get('port'), function(){
+  console.log('Express server (http redirect) listening on port ' + appRedirect.get('port'));
 });
 
 https.createServer(options,app).listen(app.get('port'), function(){
