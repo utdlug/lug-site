@@ -774,6 +774,10 @@ dt {
   float: right;
   margin-left: 6px;
 }
+#header nav li.calendar {
+  float: left;
+  margin-left: 6px;
+}
 #header nav li.title {
   float: right;
   margin-right: 10px;

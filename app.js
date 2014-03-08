@@ -53,36 +53,19 @@ if ('development' == app.get('env')) {
 
 // Routing
 app.get('/', function(req, res) {
-    if(!req.secure) {
-        res.redirect(301, "https://lug.utdallas.edu");
-    }
-    else {
         res.render('index', {title: "Linux Users Group @ UTD"});
-    }
 });
 app.get('/join', function(req, res) {
-    if(!req.secure) {
-        res.redirect(301, "https://" + req.headers.host + req.url);
-    }
-    else {
         res.redirect("https://orgsync.com/join/15316/linux-users-group");
-    }
 });
 app.get('/chat', function(req, res) {
-    if(!req.secure) {
-        res.redirect(301, "https://" + req.headers.host + req.url);
-    }
-    else {
         res.redirect("https://lug.utdallas.edu:3000");
-    }
 });
 app.get('/irc', function(req, res) {
-    if(!req.secure) {
-        res.redirect(301, "https://" + req.headers.host + req.url);
-    }
-    else {
         res.redirect("https://lug.utdallas.edu:3000");
-    }
+});
+app.get('/stats', function(req, res) {
+        res.redirect("http://stats.utdlug.org.s3-website-us-east-1.amazonaws.com/");
 });
 
 http.createServer(appRedirect).listen(appRedirect.get('port'), function(){
