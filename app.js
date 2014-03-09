@@ -8,7 +8,11 @@ var appRedirect = express();
 var certPath = "/var/www/certs/";
 var options = {
     key: fs.readFileSync(certPath + 'lug.utdallas.edu.key'),
-    cert: fs.readFileSync(certPath + 'lug.utdallas.edu.cer')
+    cert: fs.readFileSync(certPath + 'lug.utdallas.edu.cert.cer'),
+    ca: [ 
+        fs.readFileSync(certPath + 'root.cer'),
+        fs.readFileSync(certPath + 'inter1.cer')
+        ]
 //   rejectUnauthorized: false
 };
 
