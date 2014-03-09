@@ -3,6 +3,7 @@ section #title {
   outline: none;
   margin: 0 !important;
   padding-bottom: 20px !important;
+  padding-top: 15px !important;
 }
 .news-l {
 float: left;
@@ -29,6 +30,7 @@ a.nav_top:hover {
 .irc_contact {
   text-align: center;
   font-size: 16px;
+  line-height:275%;
 }
 .logo {
   margin-top: -35px;
