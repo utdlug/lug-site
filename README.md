@@ -8,7 +8,7 @@ When finished, this will be deployed and managed onto lug.utdallas.edu.
 
 Installation
 ------------
-Assuming the current code isn't broken, you can run it by `npm install` and then `node app.js`. After that, make sure to grab the webirc submodule using `git submodule update --init` inside this repo.
+To install, use `npm install` and then `node app.js` to run it. When the server launches, three ports will open: the https site, a http redirect listener, and the IRC client.
 
 Todo
 ------------
