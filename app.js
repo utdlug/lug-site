@@ -15,6 +15,8 @@ var options = {
         ]
 //   rejectUnauthorized: false
 };
+var Subway = require('./irc/lib/subway');
+var subway = new Subway();
 
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -79,3 +81,5 @@ http.createServer(appRedirect).listen(appRedirect.get('port'), function(){
 https.createServer(options,app).listen(app.get('port'), function(){
   console.log('Express server (SSL) listening on port ' + app.get('port'));
 });
+
+subway.start();
