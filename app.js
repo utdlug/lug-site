@@ -1,10 +1,9 @@
-/* extremely bare for now. will add routing, mongo, and api stuff soon. */
-
 var express = require('express')
   , http = require('http') , https = require('https') , path = require('path');
 var fs = require('fs');
 var app = express();
 var appRedirect = express();
+var siteUrl = "https://lug.utdallas.edu";
 var certPath = "/var/www/certs/";
 var options = {
     key: fs.readFileSync(certPath + 'lug.utdallas.edu.key'),
@@ -13,7 +12,6 @@ var options = {
         fs.readFileSync(certPath + 'root.cer'),
         fs.readFileSync(certPath + 'inter1.cer')
         ]
-//   rejectUnauthorized: false
 };
 var Subway = require('./irc/lib/subway');
 var subway = new Subway();
@@ -29,29 +27,20 @@ app.use(express.methodOverride());
 
 appRedirect.set('port', 3002);
 appRedirect.get("*", function (req, res) {
-   res.redirect("https://lug.utdallas.edu" + req.path);
+   res.redirect(siteUrl + req.path);
 });
 
-/* Future Mongo / Mongoose support
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/lug-site');
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function callback () {
-  // continue
-}); 
-
-// Schema 
-var lugEvent = mongoose.Schema({
-    date: { type: Date },
-    title:  String,
-    body:   String,
-    hidden: Boolean,
-    updated: { type: Date, default: Date.now }
+app.use(function errorHandler(err, req, res, next) {
+  var code = err.code;
+  var message = err.message;
+  res.writeHead(code, message, {'content-type' : 'text/plain'});
+  res.end(message);
 });
-*/
 
+app.use(function(req, res, next){
+  res.status(404);
+  res.redirect(siteUrl);
+});
 
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
@@ -65,10 +54,10 @@ app.get('/join', function(req, res) {
         res.redirect("https://orgsync.com/join/15316/linux-users-group");
 });
 app.get('/chat', function(req, res) {
-        res.redirect("https://lug.utdallas.edu:3000");
+        res.redirect(siteUrl + ":3000");
 });
 app.get('/irc', function(req, res) {
-        res.redirect("https://lug.utdallas.edu:3000");
+        res.redirect(siteUrl + ":3000");
 });
 app.get('/stats', function(req, res) {
         res.redirect("http://stats.utdlug.org.s3-website-us-east-1.amazonaws.com/");
