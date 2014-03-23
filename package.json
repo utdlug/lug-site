@@ -15,6 +15,7 @@
     "jade": "~1.0.2"
   },
   "scripts": {
-    "preinstall": "git submodule update --init; cd irc; npm install"
+    "preinstall": "git submodule update --init; cd irc; npm install",
+    "start": "node --harmony app.js"
   }
 }
