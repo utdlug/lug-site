@@ -1,18 +1,25 @@
-var express = require('express'), fs = require('fs'), http = require('http'),
-  https = require('https'), path = require('path');
-var app = express(), appRedirect = express();
-var siteUrl = "https://lug.utdallas.edu";
-var certPath = "/var/www/certs/";
-var options = {
-  key: fs.readFileSync(certPath + 'lug.utdallas.edu.key'),
-  cert: fs.readFileSync(certPath + 'lug.utdallas.edu.cert.cer'),
-  ca: [
-        fs.readFileSync(certPath + 'root.cer'),
-        fs.readFileSync(certPath + 'inter1.cer')
-      ]
-};
-var Subway = require('./irc/lib/subway');
-var subway = new Subway();
+#!/usr/bin/env node --harmony
+'use strict';
+const
+  express = require('express'),
+  fs = require('fs'), 
+  http = require('http'),
+  https = require('https'),
+  path = require('path'),
+  Subway = require('./irc/lib/subway'),
+  siteUrl = "https://lug.utdallas.edu",
+  certPath = "/var/www/certs/",
+  options = {
+    key: fs.readFileSync(certPath + 'lug.utdallas.edu.key'),
+    cert: fs.readFileSync(certPath + 'lug.utdallas.edu.cert.cer'),
+    ca: [
+          fs.readFileSync(certPath + 'root.cer'),
+          fs.readFileSync(certPath + 'inter1.cer')
+        ]
+  },
+  app = express(),
+  appRedirect = express(),
+  subway = new Subway();
 
 app.set('views', __dirname + '/views');
 app.set('port', process.env.PORT || 3001);  // dev
@@ -23,8 +30,9 @@ app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(function(err, req, res, next) {
-  var code = err.code;
-  var message = err.message;
+  let
+    code = err.code,
+    message = err.message;
   res.writeHead(code, message, {'content-type' : 'text/plain'});
   res.end(message);
 });
