@@ -62,9 +62,6 @@ app.get('/chat', function(req, res) {
 app.get('/irc', function(req, res) {
   res.redirect(siteUrl + ":3000");
 });
-app.get('/stats', function(req, res) {
-  res.redirect("http://stats.utdlug.org.s3-website-us-east-1.amazonaws.com/");
-});
 
 http.createServer(appRedirect).listen(appRedirect.get('port'), function(){
   console.log('Express server (http redirect) listening on port ' + appRedirect.get('port'));
