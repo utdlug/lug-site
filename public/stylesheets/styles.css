@@ -774,10 +774,6 @@ dt {
   float: right;
   margin-left: 6px;
 }
-#header nav li.calendar {
-  float: left;
-  margin-left: 6px;
-}
 #header nav li.title {
   float: right;
   margin-right: 10px;
@@ -823,7 +819,9 @@ section #title .credits.left {
 section #title .credits.right {
   float: right;
 }
-
+section #about {
+  text-align: center;
+}
 @media print, screen and (max-width: 720px) {
   #title .credits {
     display: block;

@@ -62,6 +62,9 @@ app.get('/chat', function(req, res) {
 app.get('/irc', function(req, res) {
   res.redirect(siteUrl + ":3000");
 });
+app.get('/about', function(req, res) {
+  res.render('about', {title: "Linux Users Group @ UTD"});
+});
 
 http.createServer(appRedirect).listen(appRedirect.get('port'), function(){
   console.log('Express server (http redirect) listening on port ' + appRedirect.get('port'));
