@@ -1,21 +1,20 @@
 {
-  "name": "lug-site",
-  "description": "The official website for the Linux Users Group @ UTD.",
-  "version": "0.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/utdlug/lug-site.git"
-  },
-  "dependencies": {
-    "express": "~3.4.7",
-    "jade": "~1.0.2"
-  },
-  "scripts": {
-    "preinstall": "git submodule update --init; cd irc; npm install",
-    "start": "node --harmony app.js"
-  }
+    "name": "lug-site",
+    "description": "The official website for the Linux Users Group @ UTD.",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/utdlug/lug-site.git"
+    },
+    "dependencies": {
+        "express": "~3.4.7",
+        "jade": "~1.0.2"
+    },
+    "scripts": {
+        "preinstall": "git submodule update --init; cd irc; npm install",
+        "start": "node app.js"
+    }
 }
