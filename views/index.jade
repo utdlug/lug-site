@@ -1,18 +1,33 @@
 extends layout
 
+block header
+    h1 Welcome
+    p We are a student organization devoted to the teaching and advocacy of Linux, open source, and free software of all kinds. We welcome anyone and everyone from the Linux, Unix, BSD, and OS X realms, so come join us!  All of our meetings are open to the public.
+    br
+    #irc.irc_contact
+        nav
+            a(href='chat') Chat with us
+            | we are on IRC at
+            b irc.oftc.net #utdlug
+    br
+    hr
+
+block link
+    a(href='about').nav_top About Us
+
 block content
     h1 Boot Process Meeting
     h3 October 25th 5:00pm - 6:30pm in ECSS 2.311
-    p Come join us on Oct. 25th at 5pm as we talk about the SUPER SCARY Linux/BSD boot process and init systems including bsd, sysv, systemd, and upstart! 
+    p Come join us on Oct. 25th at 5pm as we talk about the SUPER SCARY Linux/BSD boot process and init systems including bsd, sysv, systemd, and upstart!
       | For you hungry folks, we'll have pizza and Halloween candy, too.
-    p Update: 
-      a(href="/res/init.pdf") Download the slides from the event	
+    p Update:
+      a(href="/res/init.pdf") Download the slides from the event
     br
     hr
     br
     h1 Hackathon Primer
     h3 September 20 5:00pm - 6:30pm in ECSS 2.201
-    p The Linux Users Group is hosting an event to help you get the most out of the upcoming Hackathons! 
+    p The Linux Users Group is hosting an event to help you get the most out of the upcoming Hackathons!
     p Come find out how you can get set up in the cloud quickly and easily so that you have more time to build your project and have fun!
     p Members of LUG will host a one hour discussion on Git + GitHub and spinning up cloud infrastructure on AWS, Google, etc.
     p Other possible topics include DevOps tools like Vagrant and Ansible, or setting up quick solutions on embedded systems.
@@ -26,13 +41,13 @@ block content
     h3 March 25th 2014 at 7:00 pm in TI Auditorium (ECSS)
     img.news-r(src='/images/aws.png')
     p Interested in Cloud Computing? Want to learn how to deploy your own virtual server, or host your data in the cloud?
-    p The Linux Users Group @ UTD coordinated with local Amazon reps to host a technical introduction to AWS, demonstrating its many services and abilities. 
+    p The Linux Users Group @ UTD coordinated with local Amazon reps to host a technical introduction to AWS, demonstrating its many services and abilities.
     p
-      b Update: 
+      b Update:
       a(href="https://www.youtube.com/watch?v=KEus17RV1T8") Here is the video stream from this event
       | .
-    P 
-      | Additionally the slides are available for download   
+    P
+      | Additionally the slides are available for download
       a(href="/res/aws.pptx") here
       | .
     br
