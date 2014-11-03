@@ -4,7 +4,6 @@ var express = require('express'),
     http = require('http'),
     https = require('https'),
     path = require('path'),
-    Subway = require('./irc/lib/subway'),
     siteUrl = "https://lug.utdallas.edu",
     certPath = "/var/www/certs/",
     options = {
@@ -16,8 +15,7 @@ var express = require('express'),
         ]
     },
     app = express(),
-    appRedirect = express(),
-    subway = new Subway();
+    appRedirect = express();
 
 app.set('views', __dirname + '/views');
 app.set('port', process.env.PORT || 3001); // dev
@@ -58,7 +56,7 @@ app.get('/join', function(req, res) {
     res.redirect("https://orgsync.com/join/15316/linux-users-group");
 });
 app.get('/chat', function(req, res) {
-    res.redirect(siteUrl + ":3000");
+    res.redirect("https://scrollback.io/lug-utd");
 });
 app.get('/irc', function(req, res) {
     res.redirect(siteUrl + ":3000");
@@ -76,5 +74,3 @@ http.createServer(appRedirect).listen(appRedirect.get('port'), function() {
 https.createServer(options, app).listen(app.get('port'), function() {
     console.log('Express server (SSL) listening on port ' + app.get('port'));
 });
-
-subway.start();

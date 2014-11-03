@@ -1,3 +1,0 @@
-[submodule "irc"]
-	path = irc
-	url = git@github.com:utdlug/lug-webirc.git
